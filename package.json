@@ -3,34 +3,51 @@
   "version": "1.0.0",
   "description": "A simple CAP project.",
   "dependencies": {
+    "@cap-js/hana": "^2",
     "@sap/cds": "^9",
-    "express": "^4"
+    "express": "^4",
+    "@sap/xssec": "^4"
   },
   "devDependencies": {
     "@cap-js/sqlite": "^2",
+    "@sap/cds-dk": "^9",
     "cds-plugin-ui5": "^0.13.0"
   },
   "cds": {
     "requires": {
       "db": {
-        "kind": "sqlite",
-        "credentials": {
-          "database": "my.db"
-        }
+        "kind": "sqlite"
       },
+      "[development]": {
       "auth": {
-      "kind": "mocked",
-      "users": {
-        "admin@gmail.com": {
-          "password": "12345678",
-          "roles": [ "customerAdmin"]
-        },
-        "display@gmail.com": {
-          "password": "12345678",
-          "roles": [ "customerDisplay"]
+        "kind": "dummy",
+        "users": {
+          "admin@gmail.com": {
+            "password": "12345678",
+            "roles": [
+              "customerAdmin"
+            ]
+          },
+          "display@gmail.com": {
+            "password": "12345678",
+            "roles": [
+              "customerDisplay"
+            ]
+          }
         }
       }
-    }
+    },
+      "[production]": {
+        "db": {
+          "kind": "hana"
+        },
+        "auth": {
+          "kind": "xsuaa"
+        }
+      },
+      "html5-repo": true,
+      "destinations": true,
+      "workzone": true
     }
   },
   "scripts": {
