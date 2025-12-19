@@ -1,0 +1,2 @@
+ID,orderDate,orderType,orderStatus,customer_ID,createdAt,createdBy,modifiedAt,modifiedBy
+30522322-fcc0-463c-96a9-c0eab77d4273,2004-01-06,orderType-30522322,orderStatus-30522322,30522322-fcc0-463c-96a9-c0eab77d4273,2023-07-27T00:00:00.000Z,createdBy.i676a@example.org,2023-11-01T00:00:00.000Z,modifiedBy.i676a@example.net
